@@ -16,10 +16,15 @@ public class Klass {
     @OneToMany(mappedBy="klass")
     private Set<Student> students = new HashSet<>();
 
+    @Basic
+    @Enumerated(EnumType.STRING)
+    private CCLocation location;
+
     public Klass() {}
 
-    public Klass(String name) {
+    public Klass(String name, CCLocation location) {
         this.name = name;
+        this.location = location;
     }
 
     public String getName() {

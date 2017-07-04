@@ -26,7 +26,7 @@ public class JPAExample {
             e.printStackTrace();
         }
 
-        Klass classBp2 = new Klass("Budapest 2016-2");
+        Klass classBp2 = new Klass("Budapest 2016-2", CCLocation.BUDAPEST);
         Address address = new Address("Hungary", "1234", "Budapest", "Macskakő út 5.");
         List<String> phoneNumbers = new ArrayList<>();
         phoneNumbers.add("305885468");
@@ -42,7 +42,7 @@ public class JPAExample {
         transaction.commit();
         System.out.println("Ödön saved.");
 
-        Klass classBp3 = new Klass("Budapest 2016-3");
+        Klass classBp3 = new Klass("Budapest 2016-3", CCLocation.BUDAPEST);
         Address address2 = new Address("Hungary", "6789", "Budapest", "Harap u. 3.");
         List<String> phoneNumbers2 = new ArrayList<>();
         phoneNumbers2.add("201234569");
