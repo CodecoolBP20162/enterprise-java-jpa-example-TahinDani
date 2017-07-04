@@ -32,6 +32,10 @@ public class Student {
     @Column(name="phone_numbers")
     private List<String> phoneNumbers;
 
+    @ManyToOne
+    @JoinColumn(name="Class_ID")
+    private Klass klass;
+
     public Student() {
     }
 
@@ -99,6 +103,17 @@ public class Student {
 
     public void setPhoneNumbers(List<String> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
+    }
+
+    public Klass getKlass() {
+        return klass;
+    }
+
+    public void setKlass(Klass klass) {
+        this.klass = klass;
+        if (!klass.getStudents().contains(this)) { // warning this may cause performance issues if you have a large data set since this operation is O(n)
+            klass.getStudents().add(this);
+        }
     }
 
     @Override

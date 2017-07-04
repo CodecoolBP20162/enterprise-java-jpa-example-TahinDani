@@ -36,19 +36,22 @@ public class JPAExample {
 
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
+        em.persist(classBp2);
         em.persist(address);
         em.persist(student);
         transaction.commit();
         System.out.println("Ödön saved.");
 
+        Klass classBp3 = new Klass("Budapest 2016-3");
         Address address2 = new Address("Hungary", "6789", "Budapest", "Harap u. 3.");
         List<String> phoneNumbers2 = new ArrayList<>();
         phoneNumbers2.add("201234569");
         phoneNumbers2.add("204568231");
         Student student2 = new Student("Aladár", "ktyfl@gmail.com", birthDate2, address2, phoneNumbers2);
-        classBp2.addStudent(student2);
+        classBp3.addStudent(student2);
 
         transaction.begin();
+        em.persist(classBp3);
         em.persist(student2);
         em.persist(address2);
         transaction.commit();
