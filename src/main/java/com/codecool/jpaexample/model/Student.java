@@ -28,7 +28,7 @@ public class Student {
     private Address address;
 
     @ElementCollection
-    @CollectionTable(name="Phone", joinColumns=@JoinColumn(name="phone_id"))
+    @CollectionTable(name="Phone", joinColumns=@JoinColumn(name="student_id"))
     @Column(name="phone_numbers")
     private List<String> phoneNumbers;
 
@@ -109,20 +109,6 @@ public class Student {
                 ", age=" + age +
                 ", address id=" + address.getId() +
                 '}';
-    }
-
-    @Entity
-    @Table(name="Phone")
-    public class Phone {
-
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long id;
-
-        private String number;
-
-        //private Student owner;
-
     }
 
 }
